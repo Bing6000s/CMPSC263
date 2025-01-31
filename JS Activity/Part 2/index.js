@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Function to add new topics dynamically
     addButton.addEventListener("click", function () {
         const topic = topicInput.value.trim();
         if (topic !== "") {
@@ -35,21 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Function to update the review panel when checkboxes are selected
     document.addEventListener("change", function (event) {
         if (event.target.matches(".topic-checkbox")) {
             updateReviewPanel();
         }
     });
 
-    function updateReviewPanel() {
-        if (!reviewPanel) return;
-        reviewPanel.innerHTML = "";
-        document.querySelectorAll(".topic-checkbox:checked").forEach(checkbox => {
-            const topicText = checkbox.dataset.topic;
-            const paragraph = document.createElement("p");
-            paragraph.textContent = topicText;
-            reviewPanel.appendChild(paragraph);
-        });
-    }
 });
